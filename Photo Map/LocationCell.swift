@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import AFNetworking
+//  AFNetworking
 
 class LocationCell: UITableViewCell {
 
@@ -27,7 +27,7 @@ class LocationCell: UITableViewCell {
                 let urlSuffix = category.value(forKeyPath: "icon.suffix") as! String
                 
                 let url = "\(urlPrefix)bg_32\(urlSuffix)"
-                categoryImageView.setImageWith(URL(string: url)!)
+//                categoryImageView.setImageWith(URL(string: url)!)
             }
         }
     }

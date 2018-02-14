@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//  AFNetworking
+import  AFNetworking
 
 class LocationCell: UITableViewCell {
 

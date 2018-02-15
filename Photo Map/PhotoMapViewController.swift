@@ -20,6 +20,8 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mapView.delegate = self
+        
         //setup map
         //one degree of latitude is approximately 111 kilometers (69 miles) at all times.
         let sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.783333, -122.416667),
@@ -86,9 +88,16 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
         
         let annotation = MKPointAnnotation()
         annotation.coordinate = locationCoordinate
-        annotation.title = "Picture!"
-        let annotationView = mapView.view(for: annotation)
-//        mapView.addAnnotation(annotationView)
+        
+        //set the title
+        let numberFormat = NumberFormatter()
+        numberFormat.minimumFractionDigits = 6
+        numberFormat.maximumFractionDigits = 6
+        let latString = numberFormat.string(from: latitude)!
+        let longString = numberFormat.string(from: longitude)!
+        
+        annotation.title = "Lat: \(latString) - Long: \(longString)"
+        mapView.view(for: annotation)
         mapView.addAnnotation(annotation)
     }
     
@@ -97,13 +106,20 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
         
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseID)
         if (annotationView == nil) {
-            annotationView = MKPinAnnotationView(annotation: annotationView as! MKAnnotation, reuseIdentifier: reuseID)
+            annotationView = MKPinAnnotationView(annotation: annotationView as? MKAnnotation, reuseIdentifier: reuseID)
             annotationView!.canShowCallout = true
             annotationView!.leftCalloutAccessoryView = UIImageView(frame: CGRect(x:0, y:0, width: 50, height:50))
         }
         
         let imageView = annotationView?.leftCalloutAccessoryView as! UIImageView
-        imageView.image = UIImage(named: "camera")
+        if selectedImage != nil {
+            imageView.image = selectedImage
+        }
+        else {
+            imageView.image = UIImage(named: "camera")
+        }
+        
+        annotationView!.image = selectedImage
         
         return annotationView
     }

@@ -8,14 +8,14 @@ Time spent: **X** hours spent in total
 
 The following **required** user stories are complete:
 
-- [ ] Configure initial map view (+2pt)
-- [ ] User can take a photo (+1pt)
-- [ ] User can tag a location (+1pt)
-- [ ] User can drop a pin with image annotation (+2pt)
+- [X] Configure initial map view (+2pt)
+- [X] User can take a photo (+1pt)
+- [X] User can tag a location (+1pt)
+- [X] User can drop a pin with image annotation (+2pt)
 
 The following **stretch** user stories are implemented:
 
-- [ ] Implement a Custom MKAnnotation (+1pt)
+- [X] Implement a Custom MKAnnotation (+1pt)
 - [ ] User can see Fullscreen Picture (+1pt)
 - [ ] Replace the Pin with an Image (+1pt)
 - [ ] List anything else that you can get done to improve the app functionality! (+1-3pts)
@@ -24,7 +24,7 @@ The following **stretch** user stories are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+![Imgur](https://i.imgur.com/MxD0jtW.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
